@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+<h1>ML - Reclutamiento de Xmen's </h1><br><br><b>Invocaciones validas:</b> http://localhost:8080/mutant y http://localhost:8080/stats.<br><b>Documentación:</b> http://localhost:8080/swagger-ui.html
+----

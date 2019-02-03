@@ -33,37 +33,55 @@ public class RecruitmentControllerTest {
     private MockMvc mockMvc;
 
 	@Test
-    public void isMutantDnaHorizontalOKTest() throws Exception {
+    public void isMutantTest() throws Exception {
 		
-		String[] dnaMutanteStr = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		String[] dnaMutanteStr = {
+				"ATGCGA",
+				"CAGTGC",
+				"TTATGT",
+				"AGAAGG",
+				"CCCCTA",
+				"TCACTG"};
+		
 		Dna dnaMutante = new Dna(dnaMutanteStr);
 		testMutantServiceRest(dnaMutante, HttpStatus.OK);
     }
 	
 	@Test
-	public void isMutantTrueVerticalTest() throws Exception {
+    public void isNotMutantTest() throws Exception {
 		
-		String[] dnaNoMutanteStr = {"ATGCAA", "CAGTGC", "TTATGT", "AGAGGG", "TCCCTA", "TCACTG"};
-		Dna dnaNoMutante = new Dna(dnaNoMutanteStr);
-		testMutantServiceRest(dnaNoMutante, HttpStatus.FORBIDDEN);
-	}
-	
-	@Test
-    public void isMutantForbiddenNoEsCuadradaTest() throws Exception {
-
-		String[] dnaMutanteStr = {"GCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
+		String[] dnaMutanteStr = {
+				"ATGCAA",
+				"CAGTGC",
+				"TTGTGT",
+				"AGAAGG",
+				"TCCCTA",
+				"TCACTG"};
+		
 		Dna dnaMutante = new Dna(dnaMutanteStr);
 		testMutantServiceRest(dnaMutante, HttpStatus.FORBIDDEN);
     }
 	
 	@Test
+	public void matrixNonSquareTest() throws Exception {
+		
+		String[] dnaNoMutanteStr = {
+				"GC",
+				"GCGA",
+				"GCGA",
+				"GCGA"};
+		
+		Dna dnaNoMutante = new Dna(dnaNoMutanteStr);
+		testMutantServiceRest(dnaNoMutante, HttpStatus.FORBIDDEN);
+	}
+	
+	@Test
     public void getIsMutantOkTest() throws Exception {
 
+		@SuppressWarnings("unused")
 		ResultActions resultAction = this.mockMvc.perform(get("/stats")).andDo(print())
 												.andExpect(status().isOk())
 												.andDo(document("stats-get"));
-		
-	    System.out.println(resultAction);
     }
 	
 	private String testMutantServiceRest(Dna dna, HttpStatus code) throws IOException, Exception {

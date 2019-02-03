@@ -11,11 +11,18 @@ import org.springframework.test.context.junit4.SpringRunner;
 public class DnaSequenceTest {
 
 	@Test
-	public void isMutantTrueHorizontalTest() throws Exception {
+	public void isMutantHorizontalTest() throws Exception {
 		
 		DnaSequenceHorizontal horizontal = new DnaSequenceHorizontal();
 		
-		String[] dnaMutante = {"CCCCGA","TTTTGC","CGAGCT","CTAAGG","CGCCTA","TCACTG"};
+		String[] dnaMutante = {
+				"CCCCGA",
+				"TTTTGC",
+				"CGAGCT",
+				"CTAAGG",
+				"CGCCTA",
+				"TCACTG"};
+		
 		char[][] matrixDna = convertToArrayChar(dnaMutante);
 		
 		horizontal.findSequences(matrixDna);
@@ -24,11 +31,18 @@ public class DnaSequenceTest {
 	}
 	
 	@Test
-	public void isMutantTrueVerticalTest() throws Exception {
+	public void isMutantVerticalTest() throws Exception {
 		
 		DnaSequenceVertical vertical = new DnaSequenceVertical();
 		
-		String[] dnaMutante = {"CTGCGA","CTGTGC","CTATCT","CTAAGG","CGCCTA","TCACTG"};
+		String[] dnaMutante = {
+				"CTGCGA",
+				"CTGTGC",
+				"CTATCT",
+				"CTAAGG",
+				"CGCCTA",
+				"TCACTG"};
+		
 		char[][] matrixDna = convertToArrayChar(dnaMutante);
 		
 		vertical.findSequences(matrixDna);
@@ -37,11 +51,18 @@ public class DnaSequenceTest {
 	}
 	
 	@Test
-	public void isMutantTrueObliqueLeftToRightTest() throws Exception {
+	public void isMutantObliqueLeftToRightTest() throws Exception {
 		
 		DnaSequenceLeftToRight diagonal1 = new DnaSequenceLeftToRight();
 		
-		String[] dnaMutante = {"CGCCGA","TCTTGT","CTCGAT","CTTCGG","CGCTTA","TCACCG"};
+		String[] dnaMutante = {
+				"CGCCGA",
+				"TCTTGT",
+				"CTCGAT",
+				"CTTCGG",
+				"CGCTTA",
+				"TCACCG"};
+		
 		char[][] matrixDna = convertToArrayChar(dnaMutante);
 		
 		diagonal1.findSequences(matrixDna);
@@ -50,11 +71,18 @@ public class DnaSequenceTest {
 	}
 	
 	@Test
-	public void isMutantTrueObliqueRightToLeftTest() throws Exception {
+	public void isMutantObliqueRightToLeftTest() throws Exception {
 		
 		DnaSequenceRightToLeft diagonal2 = new DnaSequenceRightToLeft();
 		
-		String[] dnaMutante = {"AGCCGA","ACTTAC","CTCACT","CTACGG","CGCTTA","TGACCG"};
+		String[] dnaMutante = {
+				"AGCCGA",
+				"ACTTAC",
+				"CTCACT",
+				"CTACGG",
+				"CGCTTA",
+				"TGACCG"};
+		
 		char[][] matrixDna = convertToArrayChar(dnaMutante);
 		
 		diagonal2.findSequences(matrixDna);
