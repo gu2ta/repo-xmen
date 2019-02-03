@@ -8,8 +8,6 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
 
 import java.io.IOException;
 
-import org.json.JSONArray;
-import org.json.JSONObject;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +22,6 @@ import org.springframework.test.web.servlet.MvcResult;
 import org.springframework.test.web.servlet.ResultActions;
 
 import ar.com.ml.xmen.persistence.entity.Dna;
-import ar.com.ml.xmen.utils.JsonUtil;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
@@ -70,23 +67,13 @@ public class RecruitmentControllerTest {
     }
 	
 	private String testMutantServiceRest(Dna dna, HttpStatus code) throws IOException, Exception {
-		System.out.println(dna.toString());
-		String[] dnaMutanteStr = {"ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"};
-		String total = "{\"dna\":[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}";
-		
-		JSONObject obj = new JSONObject();
-		JSONArray dnaList = new JSONArray();
-		dnaList.put("ATGCGA");
-		dnaList.put("CAGTGC");
-
-		obj.put("dna", dnaList);
 		
 		ResultActions resultAction = mockMvc.perform(post("/mutant").contentType(MediaType.APPLICATION_JSON_UTF8)
-				.content(dna.toString()));
+				.content(dna.toStringJson()));
 		
-		if(HttpStatus.OK == code) {
+		if (HttpStatus.OK == code) {
 			resultAction.andExpect(status().isOk());
-		}else {
+		} else {
 			resultAction.andExpect(status().isForbidden());
 		}
 		

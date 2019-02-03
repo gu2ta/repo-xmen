@@ -48,8 +48,16 @@ public class Dna implements Serializable {
 		this.dnaArray = dnaArray;
 	}
 	
-	public String toString() {
-		return "{\"dna\":[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}";
+	public String toStringJson() {
+		String retorno = "{\"dna\":";
+		String dnaRetorno = dna;
+		dnaRetorno = dnaRetorno.replace(" ", "");
+		dnaRetorno = dnaRetorno.replace("[", "[\"");
+		dnaRetorno = dnaRetorno.replace(",", "\",\"");
+		dnaRetorno = dnaRetorno.replace("]", "\"]");
+		retorno += dnaRetorno + "}";
+		return retorno;
+//		return "{\"dna\":[\"ATGCGA\",\"CAGTGC\",\"TTATGT\",\"AGAAGG\",\"CCCCTA\",\"TCACTG\"]}";
 	}
 	
 }

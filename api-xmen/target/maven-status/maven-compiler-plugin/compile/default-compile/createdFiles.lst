@@ -2,12 +2,11 @@ ar\com\ml\xmen\persistence\task\HumanCacheTask.class
 ar\com\ml\xmen\beans\DnaSequenceLeftToRight.class
 ar\com\ml\xmen\beans\DnaSequence.class
 ar\com\ml\xmen\controller\HomeController.class
-ar\com\ml\xmen\controller\resource\MutantStatsResource.class
 ar\com\ml\xmen\persistence\factory\HibernateUtil.class
-ar\com\ml\xmen\persistence\config\CachingConfig.class
 ar\com\ml\xmen\utils\NumericUtil.class
 ar\com\ml\xmen\utils\JsonUtil.class
 ar\com\ml\xmen\service\RecruitmentService.class
+ar\com\ml\xmen\persistence\cache\CacheConfig.class
 ar\com\ml\xmen\beans\MutantStats.class
 ar\com\ml\xmen\persistence\exception\PersistenceException.class
 ar\com\ml\xmen\utils\PropertiesUtil.class
