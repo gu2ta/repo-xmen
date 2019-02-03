@@ -1,6 +1,6 @@
 -- MySQL dump 10.13  Distrib 8.0.12, for Win64 (x86_64)
 --
--- Host: 127.0.0.1    Database: sys
+-- Host: 127.0.0.1    Database: mlXmenDB
 -- ------------------------------------------------------
 -- Server version	8.0.12
 
@@ -28,7 +28,7 @@ CREATE TABLE `xmen_human` (
   `is_Mutant` bit(1) DEFAULT NULL,
   `time_stamp` timestamp(6) NULL DEFAULT NULL,
   PRIMARY KEY (`id_humano`)
-) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=50 DEFAULT CHARSET=utf8mb4;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
