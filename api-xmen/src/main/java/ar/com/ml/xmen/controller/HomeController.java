@@ -14,7 +14,7 @@ public class HomeController {
         String contextPath = request.getRequestURL().toString();
 		return "<h1>ML - Reclutamiento de Xmen's </h1>"
 				+ "<br>"
-				+ "<br><b>Invocaciones validas:</b> "+contextPath+"mutant y "+contextPath+"stats."
+				+ "<br><b>Invocaciones validas:</b> "+contextPath+"mutant y "+contextPath+"stats"
 				+ "<br><b>Documentación:</b> "+contextPath+"swagger-ui.html";
 	}
 
