@@ -1,0 +1,8 @@
+[source,http,options="nowrap"]
+----
+HTTP/1.1 200 OK
+Content-Type: application/json;charset=UTF-8
+Content-Length: 57
+
+{"count_mutant_dna":24,"count_human_dna":36,"ratio":0.67}
+----
