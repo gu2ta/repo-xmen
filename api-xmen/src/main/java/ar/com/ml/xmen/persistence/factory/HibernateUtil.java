@@ -13,6 +13,7 @@ import org.hibernate.boot.registry.StandardServiceRegistryBuilder;
 import org.hibernate.cfg.Environment;
 
 import com.github.fluent.hibernate.cfg.scanner.EntityScanner;
+import com.google.appengine.api.utils.SystemProperty;
 
 import ar.com.ml.xmen.persistence.entity.Human;
 import ar.com.ml.xmen.utils.PropertiesUtil;
@@ -34,11 +35,21 @@ public class HibernateUtil {
 		        
 		        // Hibernate settings equivalent to hibernate.cfg.xml's properties
 	            Map<String, String> dbSettings = new HashMap<>();
-	            dbSettings.put(Environment.DRIVER, properties.getProperty(PropertiesUtil.DB_DRIVER_CLASS));
-	            dbSettings.put(Environment.URL, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_URL)));
-	            dbSettings.put(Environment.USER, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_USER)));
-	            dbSettings.put(Environment.PASS, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_PASSWORD)));
-	            dbSettings.put(Environment.DIALECT, properties.getProperty(PropertiesUtil.DB_DIALECT));
+	            
+	            if (SystemProperty.environment.value() == SystemProperty.Environment.Value.Production) {
+	            	dbSettings.put(Environment.DRIVER, properties.getProperty(PropertiesUtil.DB_DRIVER_CLASS_PROD));
+		            dbSettings.put(Environment.URL, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_URL_PROD)));
+		            dbSettings.put(Environment.USER, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_USER_PROD)));
+		            dbSettings.put(Environment.PASS, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_PASSWORD_PROD)));
+		            dbSettings.put(Environment.DIALECT, properties.getProperty(PropertiesUtil.DB_DIALECT_PROD));
+	            } else {
+	            	dbSettings.put(Environment.DRIVER, properties.getProperty(PropertiesUtil.DB_DRIVER_CLASS_DEV));
+		            dbSettings.put(Environment.URL, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_URL_DEV)));
+		            dbSettings.put(Environment.USER, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_USER_DEV)));
+		            dbSettings.put(Environment.PASS, Encrypter.decrypt(properties.getProperty(PropertiesUtil.DB_PASSWORD_DEV)));
+		            dbSettings.put(Environment.DIALECT, properties.getProperty(PropertiesUtil.DB_DIALECT_DEV));
+	            }
+	            
 	            dbSettings.put(Environment.SHOW_SQL, properties.getProperty(PropertiesUtil.DB_SHOW_SQL));
 	            dbSettings.put(Environment.FORMAT_SQL, properties.getProperty(PropertiesUtil.DB_FORMAT_SQL));
 				
