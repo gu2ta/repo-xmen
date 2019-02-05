@@ -1,5 +1,0 @@
-[source,bash]
-----
-$ echo '{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}' | http POST 'http://localhost:8080/mutant' \
-    'Content-Type:application/json;charset=UTF-8'
-----

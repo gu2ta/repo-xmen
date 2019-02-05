@@ -9,7 +9,7 @@ import ar.com.ml.xmen.beans.DnaSequenceVertical;
 import ar.com.ml.xmen.enums.DnaEnum;
 import ar.com.ml.xmen.service.RecruitmentService;
 
-@Service("reclutamientoService")
+@Service("recruitmentService")
 public class RecruitmentServiceImpl implements RecruitmentService {
 
 	@Override
