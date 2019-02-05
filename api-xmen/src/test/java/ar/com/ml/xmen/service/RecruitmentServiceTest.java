@@ -175,8 +175,8 @@ public class RecruitmentServiceTest {
 				"AGAGAG",
 				"CCGCTA",
 				"TCACTG"};
-	
-		for (int i = 0; i < 2000000; i++) {
+		
+		for (int i = 0; i < 1000000; i++) {
 			Assert.assertTrue(recruitmentService.isMutant(dnaMutantMassive));
 		}
 	}

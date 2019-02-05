@@ -1,4 +1,4 @@
 [source,options="nowrap"]
 ----
-{"count_mutant_dna":4,"count_human_dna":7,"ratio":0.57}
+{"count_mutant_dna":3,"count_human_dna":6,"ratio":0.5}
 ----

@@ -12,10 +12,12 @@ import ar.com.ml.xmen.persistence.factory.HibernateUtil;
 @Repository("genericDAO")
 public abstract class GenericDAOImpl<T extends Serializable> {
 
-	private Class<T> clazz;
+	private Class<T> clazz = getDomainClass();
+
+	protected abstract Class<T> getDomainClass();
 	
 	private Session session;
-
+	
 	public final void setClazz(Class<T> clazzToSet) {
 		this.clazz = clazzToSet;
 	}

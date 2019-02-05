@@ -17,7 +17,12 @@ import ar.com.ml.xmen.persistence.factory.HibernateUtil;
 
 @Repository("humanDAO")
 public class HumanDaoImpl extends GenericDAOImpl<Human> implements HumanDao {
-
+	
+	@Override
+	protected Class<Human> getDomainClass() {
+		return Human.class;
+	}
+	
 	@SuppressWarnings("unchecked")
 	@Override
 	public MutantStats getCountsMutant() throws PersistenceException {
@@ -47,5 +52,5 @@ public class HumanDaoImpl extends GenericDAOImpl<Human> implements HumanDao {
 		
 		return new MutantStats(humanDB.getCountIsMutant(), humanDB.getCountGeneric());
 	}
-
+	
 }
