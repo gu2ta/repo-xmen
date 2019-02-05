@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ar.com.ml.xmen.service.RecruitmentServiceTest
+-------------------------------------------------------------------------------
+Tests run: 14, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 26.335 s - in ar.com.ml.xmen.service.RecruitmentServiceTest

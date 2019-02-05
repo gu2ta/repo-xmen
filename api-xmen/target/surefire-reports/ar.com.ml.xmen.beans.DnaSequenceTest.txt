@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: ar.com.ml.xmen.beans.DnaSequenceTest
+-------------------------------------------------------------------------------
+Tests run: 4, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.022 s - in ar.com.ml.xmen.beans.DnaSequenceTest

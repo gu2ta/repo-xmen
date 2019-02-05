@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"dna":["ATGCGA","CAGTGC","TTATGT","AGAAGG","CCCCTA","TCACTG"]}
+----

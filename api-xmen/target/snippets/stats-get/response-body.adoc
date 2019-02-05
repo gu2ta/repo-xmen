@@ -1,0 +1,4 @@
+[source,options="nowrap"]
+----
+{"count_mutant_dna":4,"count_human_dna":7,"ratio":0.57}
+----
